@@ -1,0 +1,69 @@
+<div class="jumbotron">
+    
+
+    <div class="col-md-12 col-sm-12 col-xs-6 thumbnail text-center" >
+
+        <h2 class="display-8">{{ ofertaSelected.NombreOferta }}</h2>
+        <h3 class="display-8">{{ ofertaSelected.Latitud }}</h3>
+        <h3 class="display-8">{{ ofertaSelected.Longitud }}</h3>
+
+        <img class="img-responsive  text-center" (click)="goBack()" src="http://www.yooinvito.com/yoo/img/{{ ofertaSelected.ImgOferta }}" />
+        <div class="caption center-block "> <i class="fa fa-map-marker"></i> {{ ofertaSelected.distance }} Km</div>
+      </div>
+
+    <p class="lead">{{ ofertaSelected.Descripcion }}</p>
+    <hr class="my-4">
+     
+
+     <!-- <agm-map [latitude]="lat" [longitude]="lng" [mapTypeId]="mapTypeId"  >
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map> -->
+      <!-- <agm-map 
+      [latitude]="latitude" 
+      [longitude]="longitude" 
+      [mapTypeId]="mapTypeId" 
+      [zoom]="zoom"
+      (mapReady)="function($event)"
+      (mapClick)="onChoseLocation($event)" >
+      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map> -->
+
+    <agm-map 
+    #AgmMap
+    [latitude]="latitude" 
+    [longitude]="longitude" 
+    [mapTypeId]="mapTypeId" 
+    [fitBounds]="boundsl" 
+    (mapReady)="onmapReady($event)"
+    (mapClick)="onChoseLocation($event)" >
+    <agm-marker [latitude]="latitude" [longitude]="longitude">
+      <agm-info-window isOpen="true">
+          <div>
+              {{ofertaSelected.NombreOferta}} 
+            </div> 
+      </agm-info-window>
+    </agm-marker>
+
+    <agm-marker [latitude]="latitudeMe" [longitude]="longitudeMe" [iconUrl]="'assets/locationme.png'">
+      <agm-info-window>
+        <strong>
+        <div>
+          Yoo
+        </div> 
+        </strong>
+      </agm-info-window>
+    </agm-marker>
+
+    <!-- <agm-circle [latitude]="latitudeMe" [longitude]="longitudeMe" 
+    [radius]="5000"
+    [fillColor]="'red'"
+    [circleDraggable]="false"
+    [editable]="false">
+    </agm-circle> -->
+
+
+
+  </agm-map>
+  
+
+</div>

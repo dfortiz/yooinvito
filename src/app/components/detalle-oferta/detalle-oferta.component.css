@@ -1,0 +1,25 @@
+
+
+ .thumbnail img {
+    height:150px;
+    width:100%;
+    border-radius: 15px;
+    padding: 0px;
+    /* background-color: #3ad63a; */
+    /* padding-bottom: 0px; */
+} 
+
+div .caption {
+    width:100%;
+    background-color: #e7e0c9; 
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 0px;
+    border: 0px;
+    /* border-bottom: 10px; */
+}
+
+agm-map {
+    height: 300px;
+  }
+  

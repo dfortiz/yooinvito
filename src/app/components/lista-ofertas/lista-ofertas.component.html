@@ -1,0 +1,45 @@
+
+<!-- 
+  <div class="oferta" *ngFor="let oferta of ofertas" >
+  <div class="card">
+    <div class="card-hearder">
+      {{ oferta.idOferta }}
+    </div>
+    <div class="card-block">
+      <p class="card-text">{{ oferta.distance }} Km. {{ oferta.ImgOferta }}</p>
+      <img src="http://www.yooinvito.com/yoo/img/{{ oferta.ImgOferta }}">
+    </div>
+  </div>
+  <br>
+</div> -->
+
+
+<!-- <div class="container">
+    <div class="row" *ngFor="let oferta of ofertas">
+        <div class="col-md-3 col-sm-4 col-xs-6 thumbnail"><img class="img-responsive" src="http://www.yooinvito.com/yoo/img/{{ oferta.ImgOferta }}" /></div>
+        <div class="col-md-3 col-sm-4 col-xs-6 thumbnail"><img class="img-responsive" src="http://www.yooinvito.com/yoo/img/{{ oferta.ImgOferta }}" /></div>
+      </div>
+</div> -->
+
+<div class="container">
+
+    <div class="col-sm-6" id="left">
+        <div class="row" *ngFor="let oferta of ofertas; let i = index;">
+            <div class="col-md-3 col-sm-4 col-xs-6 thumbnail" *ngIf="i%2 == 0" >
+              <img class="img-responsive" (click)="goDetail(oferta)" src="http://www.yooinvito.com/yoo/img/{{ oferta.ImgOferta }}" />
+              <div class="caption center-block"> <i class="fa fa-map-marker"></i> {{ oferta.distance }} Km</div>
+            </div>
+        </div>
+  </div>   
+
+  <div class="col-sm-6" id="right">
+      <div class="row" *ngFor="let oferta of ofertas; let i = index;">
+          <div class="col-md-3 col-sm-4 col-xs-6 thumbnail" *ngIf="i%2 != 0">
+            <img class="img-responsive" (click)="goDetail(oferta)" src="http://www.yooinvito.com/yoo/img/{{ oferta.ImgOferta }}" />
+            <div class="caption center-block"> <i class="fa fa-map-marker"></i> {{ oferta.distance }} Km</div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
